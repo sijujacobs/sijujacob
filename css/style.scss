@@ -1,0 +1,394 @@
+/* ----------------------- CONTENTS --------
+imports
+variables
+1. Common 
+2. Body
+3. Header
+4. Navigation Menu
+5. Section
+6. Gallery
+7. Slider
+8. Map
+
+functions
+
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+$blackBgColor: #000;
+$whiteFontColor: #adadad;
+$blueColor: #1e90ff;
+$greenColor: #1e5000;
+$blueGreenColor: #09bdbd;
+$linearGradientBG: linear-gradient(to right, $blueColor, $greenColor);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.sectionHeader {
+  position: relative;
+  padding: 20px 0px 20px 30px;
+  background-color: $blackBgColor;
+}
+.sectionTitle {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 5px;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: $linearGradientBG;
+}
+
+.headerLine {
+  height: 2px;
+  width: 97%;
+  margin-top: 5px;
+  background-image: $linearGradientBG;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  display: grid;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: $blackBgColor;
+  padding: 10px;
+}
+
+// -------------------- NAVBAR --------------------
+
+#navbar {
+  .logo {
+    float: left;
+    margin: 10px 5px 0 15px;
+    img {
+      height: 20px;
+    }
+  }
+  .menuButton {
+    margin: 5px 5px 0 0;
+    width: 20px;
+    position: relative;
+    z-index: 10;
+    float: right;
+    font-size: 0;
+    &::before,
+    &::after,
+    span {
+      display: block;
+      content: "";
+      background-color: #fff;
+      border-radius: 3px;
+      height: 3px;
+      margin: 4px 0;
+      transition: all 0.4s ease-in-out;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &::before {
+      background-color: $blueColor;
+    }
+    &::after {
+      background-color: $greenColor;
+    }
+    span {
+      background-color: $blueGreenColor;
+    }
+  } // End-of-MenuButton
+
+  .open::before {
+    transform: translateY(5px) rotate(135deg);
+    background-color: $blueColor;
+  }
+  .open::after {
+    transform: translateY(-9px) rotate(-135deg);
+    background-color: $greenColor;
+  }
+  .open span {
+    transform: scale(0);
+  }
+
+  .navOverlay.hidden {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: table;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    // transition: opacity 1s;
+    transition: visibility 0s 1s, opacity 1s linear;
+  }
+  .navOverlay.open {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1s linear;
+  }
+  .navOverlay ul.menu {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0;
+  }
+  .navOverlay ul.menu li {
+    opacity: 0;
+    list-style: none;
+    transition: translateY(20px);
+    transform: translateY(20px);
+  }
+  .navOverlay.open ul.menu li {
+    opacity: 1;
+    transition: translateY(0px);
+    transform: translateY(0px);
+  }
+  .navOverlay.open ul.menu li a {
+    font-size: 15px;
+    line-height: 60px;
+    letter-spacing: 5px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: $linearGradientBG;
+    color: transparent;
+    text-decoration: none;
+    transition: font-size 0.5s;
+  }
+  .navOverlay.open ul.menu li a:hover {
+    font-size: 20px;
+    opacity: 0.8;
+    transition: font-size 0.5s, opacity 0.5s;
+  }
+  .navOverlay.open ul.menu li:nth-child(1) {
+    transition: opacity 0.5s 0.5s, transform 0.5s 0.5s;
+  }
+  .navOverlay.open ul.menu li:nth-child(2) {
+    transition: opacity 0.7s 0.7s, transform 0.7s 0.7s;
+  }
+  .navOverlay.open ul.menu li:nth-child(3) {
+    transition: opacity 0.9s 0.9s, transform 0.9s 0.9s;
+  }
+  .navOverlay.open ul.menu li:nth-child(4) {
+    transition: opacity 1.1s 1.1s, transform 1.1s 1.1s;
+  }
+} //End-Of-NavHeader
+// -------------------- END NAVBAR
+
+// -------------------- HOME
+#home {
+  width: 100%;
+  height: 100vh;
+  animation: fadein 3s;
+  z-index: 1;
+}
+.overlay {
+  width: 60vw;
+  margin: 5% auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  .profilePic {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+  }
+  .profileDesc {
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: $linearGradientBG;
+    color: transparent;
+    line-height: 20pt;
+    font-size: 10pt;
+    letter-spacing: 1pt;
+    display: grid;
+    align-content: center;
+  }
+}
+//  -------------------- END HOME
+
+//  -------------------- ABOUT
+#about {
+  color: whitesmoke;
+  min-height: 80vh;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  .aboutDesc {
+    padding: 30px;
+  }
+}
+//  -------------------- END ABOUT
+
+//  --------------------  SKILLS
+
+#skills {
+  min-height: 80vh;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-content: center;
+  margin: 15px 10px 15px 10px;
+  .progressbar {
+    margin: 15px 10px;
+    background-image: $linearGradientBG;
+    border-radius: 5px; /* (height of inner div) / 2 + padding */
+    padding: 3px;
+    box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.8);
+    transform: scale(0.98);
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
+
+  .progressbar > div {
+    color: whitesmoke;
+    width: 40%; /* Adjust with JavaScript */
+    height: 20px;
+    border-radius: 5px;
+  }
+}
+
+#projects {
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-gap: 1rem;
+
+  margin: 15px 10px 15px 10px;
+  .project {
+    border: 1px solid #e2e2e2;
+    border-radius: 0.5rem;
+    background-color: dodgerblue;
+    color: white;
+    padding: 1rem;
+  }
+}
+
+//  -------------------- END SKILLS
+
+// ------------------ TECHNOLOGIES
+.technologies {
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 1rem;
+  justify-items: center;
+  .project {
+    border: 1px solid #e2e2e2;
+    border-radius: 0.5rem;
+    background-color: dodgerblue;
+    color: white;
+    padding: 1rem;
+  }
+}
+// ------------------ END TECHNOLOGIES
+
+// ---------------------- CONTACT
+#contact {
+  min-height: 80vh;
+  background-image: url("../images/work-731198_1920.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 3;
+  .sectionContent {
+    padding: 5%;
+  }
+
+  .contactOverlay {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 550px));
+    justify-content: center;
+    grid-gap: 15px;
+  }
+
+  .mapSection {
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    .mapFrame {
+      width: 100%;
+      height: 10em;
+      box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.5);
+      border-radius: 4px;
+    }
+    .address {
+      text-align: left;
+      height: 120px;
+      padding: 10px 0 10px 0px;
+      color: #abe7fb;
+    }
+  }
+
+  .emailSection {
+    input.submitBtn:hover {
+      background-image: $linearGradientBG;
+    }
+    input,
+    textarea {
+      width: 100%;
+      padding: 5px;
+      margin: 3px;
+      border: 1px solid #252525;
+      border-radius: 5px;
+      resize: vertical;
+      background-color: $blackBgColor;
+      color: #fff;
+      outline: none;
+      box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .action {
+      width: 100%;
+      input.btnSend {
+        background-color: $blueColor;
+        border: 1px solid $blueColor;
+        color: $whiteFontColor;
+        width: 125px;
+        float: right;
+        clear: both;
+        outline: none;
+        box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.5);
+        &:hover {
+          cursor: pointer;
+          background-image: $linearGradientBG;
+        }
+      }
+      .emailResponse {
+        float: right;
+        clear: both;
+        color: $greenColor;
+      }
+      .emailResponse.error {
+        color: rgb(238, 76, 76);
+      }
+    }
+  } //End-Of-EmailSection
+} //End-Of-Contact
+//  ---------------------- END CONTACT
+
+footer {
+  color: whitesmoke;
+  display: grid;
+  grid-template-rows: 70px;
+  font-size: 8pt;
+  align-items: center;
+  justify-items: center;
+}
