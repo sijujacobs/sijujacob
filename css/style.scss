@@ -267,11 +267,11 @@ body {
 // ---------------------- CONTACT
 #contact {
   min-height: 80vh;
-  background-image: url("../images/work-731198_1920.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  //   background-image: url("../images/work-731198_1920.jpg");
+  //   background-attachment: fixed;
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
   z-index: 3;
   .sectionContent {
     padding: 5%;
@@ -352,10 +352,16 @@ body {
 footer {
   color: whitesmoke;
   display: grid;
-  grid-template-rows: 70px;
+  grid-template-columns: 1fr;
   font-size: 8pt;
   align-items: center;
   justify-items: center;
+  .footerWrapper {
+    width: 100%;
+  }
+  .copyRight {
+    text-align: center;
+  }
 }
 
 // SKILL CAHRT

@@ -299,11 +299,6 @@ body {
 
 #contact {
   min-height: 80vh;
-  background-image: url("../images/work-731198_1920.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   z-index: 3;
 }
 
@@ -401,13 +396,21 @@ footer {
   color: whitesmoke;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 70px;
-      grid-template-rows: 70px;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
   font-size: 8pt;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   justify-items: center;
+}
+
+footer .footerWrapper {
+  width: 100%;
+}
+
+footer .copyRight {
+  text-align: center;
 }
 
 #viz {
