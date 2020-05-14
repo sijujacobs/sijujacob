@@ -1,0 +1,92 @@
+var skillData = [
+  {
+    id: 1,
+    groupid: 1,
+    size: 10,
+    name: "Javascript",
+  },
+  {
+    id: 2,
+    groupid: 1,
+    size: 20,
+    name: "React",
+  },
+  {
+    id: 4,
+    groupid: 1,
+    size: 17,
+    name: "Redux",
+  },
+  {
+    id: 3,
+    groupid: 2,
+    size: 12,
+    name: "Angular",
+  },
+  {
+    id: 5,
+    groupid: 1,
+    size: 24,
+    name: "HTML",
+  },
+  {
+    id: 6,
+    groupid: 3,
+    size: 16,
+    name: "CSS",
+  },
+  {
+    id: 7,
+    groupid: 99,
+    size: 14,
+    name: "SASS",
+  },
+  {
+    id: 8,
+    groupid: 3,
+    size: 13,
+    name: "JQuery",
+  },
+  {
+    id: 10,
+    groupid: 1,
+    size: 12,
+    name: "Adobe Flex",
+  },
+  {
+    id: 11,
+    groupid: 1,
+    size: 14,
+    name: "Actionscript",
+  },
+  {
+    id: 12,
+    groupid: 1,
+    size: 12,
+    name: "ES6",
+  },
+  {
+    id: 13,
+    groupid: 3,
+    size: 15,
+    name: "NodeJS",
+  },
+  {
+    id: 14,
+    groupid: 3,
+    size: 3,
+    name: "PHP",
+  },
+  {
+    id: 9,
+    groupid: 3,
+    size: 3,
+    name: ".Net",
+  },
+  {
+    id: 15,
+    groupid: 1,
+    size: 5,
+    name: "D3",
+  },
+];

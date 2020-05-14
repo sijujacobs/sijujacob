@@ -20,8 +20,7 @@ $whiteFontColor: #adadad;
 $blueColor: #1e90ff;
 $greenColor: #1e5000;
 $blueGreenColor: #09bdbd;
-$linearGradientBG: linear-gradient(to right, $blueColor, $greenColor);
-
+$gradientBgImage: linear-gradient(to right, $blueColor, $greenColor);
 * {
   padding: 0;
   margin: 0;
@@ -38,21 +37,23 @@ $linearGradientBG: linear-gradient(to right, $blueColor, $greenColor);
   background-color: $blackBgColor;
 }
 .sectionTitle {
-  font-size: 20px;
+  font-size: 15px;
   text-transform: uppercase;
   font-weight: 900;
   letter-spacing: 5px;
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  background-image: $linearGradientBG;
+  background-image: $gradientBgImage;
 }
 
 .headerLine {
   height: 2px;
   width: 97%;
   margin-top: 5px;
-  background-image: $linearGradientBG;
+  //   background-image: $linearGradientBG;
+
+  background-image: $gradientBgImage;
 }
 
 html {
@@ -163,7 +164,7 @@ body {
     letter-spacing: 5px;
     -webkit-background-clip: text;
     background-clip: text;
-    background-image: $linearGradientBG;
+    background-image: $gradientBgImage;
     color: transparent;
     text-decoration: none;
     transition: font-size 0.5s;
@@ -194,91 +195,46 @@ body {
   height: 100vh;
   animation: fadein 3s;
   z-index: 1;
+  display: grid;
+  justify-items: center;
 }
 .overlay {
-  width: 60vw;
-  margin: 5% auto;
+  width: 75vw;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+
+  .redFont {
+    color: rgb(255, 70, 70);
+  }
+
   .profilePic {
     width: 300px;
     height: 400px;
     object-fit: cover;
   }
   .profileDesc {
-    -webkit-background-clip: text;
-    background-clip: text;
-    background-image: $linearGradientBG;
-    color: transparent;
     line-height: 20pt;
     font-size: 10pt;
     letter-spacing: 1pt;
-    display: grid;
-    align-content: center;
+    color: whitesmoke;
   }
 }
 //  -------------------- END HOME
 
 //  -------------------- ABOUT
-#about {
+#domain {
   color: whitesmoke;
   min-height: 80vh;
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: 1fr;
   justify-content: center;
-  .aboutDesc {
-    padding: 30px;
-  }
 }
 //  -------------------- END ABOUT
 
 //  --------------------  SKILLS
-
-#skills {
-  min-height: 80vh;
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  justify-content: center;
-  margin: 15px 10px 15px 10px;
-  .progressbar {
-    margin: 15px 10px;
-    background-image: $linearGradientBG;
-    border-radius: 5px; /* (height of inner div) / 2 + padding */
-    padding: 3px;
-    box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.8);
-    transform: scale(0.98);
-    transition: all 0.3s ease-in;
-
-    &:hover {
-      transform: scale(1);
-    }
-  }
-
-  .progressbar > div {
-    color: whitesmoke;
-    width: 40%; /* Adjust with JavaScript */
-    height: 20px;
-    border-radius: 5px;
-  }
-}
-
-#projects {
-  min-height: 80vh;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-  grid-gap: 1rem;
-
-  margin: 15px 10px 15px 10px;
-  .project {
-    border: 1px solid #e2e2e2;
-    border-radius: 0.5rem;
-    background-color: dodgerblue;
-    color: white;
-    padding: 1rem;
-  }
-}
 
 //  -------------------- END SKILLS
 
@@ -339,7 +295,7 @@ body {
 
   .emailSection {
     input.submitBtn:hover {
-      background-image: $linearGradientBG;
+      background-image: $gradientBgImage;
     }
     input,
     textarea {
@@ -368,7 +324,7 @@ body {
         box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.5);
         &:hover {
           cursor: pointer;
-          background-image: $linearGradientBG;
+          background-image: $gradientBgImage;
         }
       }
       .emailResponse {
@@ -392,3 +348,65 @@ footer {
   align-items: center;
   justify-items: center;
 }
+
+// SKILL CAHRT
+
+#viz {
+  min-height: 400px;
+  display: -ms-grid;
+  display: grid;
+}
+
+.bar {
+  fill: #c7003b;
+}
+.bar:hover {
+  fill: #61001d;
+}
+.axis {
+  font-size: 10px;
+  stroke: whitesmoke;
+}
+
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #d4d8da;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+.x path {
+  display: none;
+}
+#chart {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.d3-tip {
+  line-height: 1;
+  font-size: 14px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #b9b9b9;
+  border-radius: 2px;
+}
+// END SKILL CAHRT
+
+// ----------- BUBBLE CHART
+#bubbleChart {
+  background-color: #000;
+
+  .tooltip {
+    position: absolute;
+    visibility: hidden;
+    color: whitesmoke;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: left;
+    width: 125px;
+    font-size: 10pt;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+// -----------END BUBBLE CHART
