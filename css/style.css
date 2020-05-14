@@ -41,16 +41,16 @@ functions
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  background-image: -webkit-gradient(linear, left top, right top, from(#1e90ff), to(#1e5000));
-  background-image: linear-gradient(to right, #1e90ff, #1e5000);
+  background-image: -webkit-gradient(linear, left top, right top, from(#6d3333), to(#ad4242));
+  background-image: linear-gradient(to right, #6d3333, #ad4242);
 }
 
 .headerLine {
   height: 2px;
   width: 97%;
   margin-top: 5px;
-  background-image: -webkit-gradient(linear, left top, right top, from(#1e90ff), to(#1e5000));
-  background-image: linear-gradient(to right, #1e90ff, #1e5000);
+  background-image: -webkit-gradient(linear, left top, right top, from(#6d3333), to(#ad4242));
+  background-image: linear-gradient(to right, #6d3333, #ad4242);
 }
 
 html {
@@ -102,27 +102,27 @@ body {
 }
 
 #navbar .menuButton::before {
-  background-color: #1e90ff;
+  background-color: red;
 }
 
 #navbar .menuButton::after {
-  background-color: #1e5000;
+  background-color: #6d3333;
 }
 
 #navbar .menuButton span {
-  background-color: #09bdbd;
+  background-color: #ad4242;
 }
 
 #navbar .open::before {
   -webkit-transform: translateY(5px) rotate(135deg);
           transform: translateY(5px) rotate(135deg);
-  background-color: #1e90ff;
+  background-color: #ad4242;
 }
 
 #navbar .open::after {
   -webkit-transform: translateY(-9px) rotate(-135deg);
           transform: translateY(-9px) rotate(-135deg);
-  background-color: #1e5000;
+  background-color: red;
 }
 
 #navbar .open span {
@@ -182,8 +182,8 @@ body {
   letter-spacing: 5px;
   -webkit-background-clip: text;
   background-clip: text;
-  background-image: -webkit-gradient(linear, left top, right top, from(#1e90ff), to(#1e5000));
-  background-image: linear-gradient(to right, #1e90ff, #1e5000);
+  background-image: -webkit-gradient(linear, left top, right top, from(#6d3333), to(#ad4242));
+  background-image: linear-gradient(to right, #6d3333, #ad4242);
   color: transparent;
   text-decoration: none;
   -webkit-transition: font-size 0.5s;
@@ -346,8 +346,8 @@ body {
 }
 
 #contact .emailSection input.submitBtn:hover {
-  background-image: -webkit-gradient(linear, left top, right top, from(#1e90ff), to(#1e5000));
-  background-image: linear-gradient(to right, #1e90ff, #1e5000);
+  background-image: -webkit-gradient(linear, left top, right top, from(#6d3333), to(#ad4242));
+  background-image: linear-gradient(to right, #6d3333, #ad4242);
 }
 
 #contact .emailSection input,
@@ -383,8 +383,8 @@ body {
 
 #contact .emailSection .action input.btnSend:hover {
   cursor: pointer;
-  background-image: -webkit-gradient(linear, left top, right top, from(#1e90ff), to(#1e5000));
-  background-image: linear-gradient(to right, #1e90ff, #1e5000);
+  background-image: -webkit-gradient(linear, left top, right top, from(#6d3333), to(#ad4242));
+  background-image: linear-gradient(to right, #6d3333, #ad4242);
 }
 
 #contact .emailSection .action .emailResponse {

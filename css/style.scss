@@ -20,7 +20,11 @@ $whiteFontColor: #adadad;
 $blueColor: #1e90ff;
 $greenColor: #1e5000;
 $blueGreenColor: #09bdbd;
-$gradientBgImage: linear-gradient(to right, $blueColor, $greenColor);
+$red: #ad4242;
+$lightRed: #6d3333;
+$white: whitesmoke;
+$gradientBgImage: linear-gradient(to right, $lightRed, $red);
+// $gradientBgImage: linear-gradient(to right, $blueColor, $greenColor);
 * {
   padding: 0;
   margin: 0;
@@ -100,23 +104,28 @@ body {
       cursor: pointer;
     }
     &::before {
-      background-color: $blueColor;
+      //   background-color: $blueColor;
+      background-color: red;
     }
     &::after {
-      background-color: $greenColor;
+      background-color: $lightRed;
+      //   background-color: $greenColor;
     }
     span {
-      background-color: $blueGreenColor;
+      background-color: $red;
+      //   background-color: $blueGreenColor;
     }
   } // End-of-MenuButton
 
   .open::before {
     transform: translateY(5px) rotate(135deg);
-    background-color: $blueColor;
+    background-color: $red;
+    // background-color: $blueColor;
   }
   .open::after {
     transform: translateY(-9px) rotate(-135deg);
-    background-color: $greenColor;
+    background-color: red;
+    // background-color: $greenColor;
   }
   .open span {
     transform: scale(0);
