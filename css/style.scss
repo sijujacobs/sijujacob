@@ -323,17 +323,21 @@ body {
     .action {
       width: 100%;
       input.btnSend {
-        background-color: $blueColor;
-        border: 1px solid $blueColor;
+        background-color: $lightRed;
+        border: 1px solid $red;
         color: $whiteFontColor;
-        width: 125px;
+        width: 85px;
         float: right;
         clear: both;
         outline: none;
         box-shadow: 2px 2px 10px 5px rgba(0, 0, 0, 0.5);
+        transform: scale(0.96);
+        transition: transform 0.4s ease-in;
         &:hover {
           cursor: pointer;
           background-image: $gradientBgImage;
+          transform: scale(1);
+          box-shadow: 1px 1px 9px 2px rgba(80, 76, 76, 0.6);
         }
       }
       .emailResponse {
