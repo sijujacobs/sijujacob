@@ -42,16 +42,54 @@ function bubbleChart() {
   }
 
   let chart = function chart(selector, rawData) {
-    var tooltip = d3
-      .select("#bubbleChart")
-      .append("div")
-      .attr("class", "tooltip")
-      .text("");
     nodes = createNodes(rawData);
     svg = d3
       .select(selector)
       .append("svg")
       .attr("viewBox", `0 0 ${width} ${height}`);
+
+    var tooltip = d3
+      .select("#skillChart")
+      .append("div")
+      .attr("class", "tooltip")
+      .text("");
+
+    //   ------------ DROP SHADOW FILTER
+    // filters go in defs element
+    var defs = svg.append("defs");
+
+    // create filter with id #drop-shadow
+    // height=130% so that the shadow is not clipped
+    var filter = defs
+      .append("filter")
+      .attr("id", "drop-shadow")
+      .attr("height", "130%");
+
+    // SourceAlpha refers to opacity of graphic that this filter will be applied to
+    // convolve that with a Gaussian with standard deviation 3 and store result
+    // in blur
+    filter
+      .append("feGaussianBlur")
+      .attr("in", "SourceAlpha")
+      .attr("stdDeviation", 5)
+      .attr("result", "blur");
+
+    // translate output of Gaussian blur to the right and downwards with 2px
+    // store result in offsetBlur
+    filter
+      .append("feOffset")
+      .attr("in", "blur")
+      .attr("dx", 5)
+      .attr("dy", 5)
+      .attr("result", "offsetBlur");
+
+    // overlay original SourceGraphic over translated blurred opacity by using
+    // feMerge filter. Order of specifying inputs is important!
+    var feMerge = filter.append("feMerge");
+
+    feMerge.append("feMergeNode").attr("in", "offsetBlur");
+    feMerge.append("feMergeNode").attr("in", "SourceGraphic");
+    //   ------------END DROP SHADOW FILTER
 
     const elements = svg
       .selectAll(".bubble")
@@ -60,18 +98,30 @@ function bubbleChart() {
       .append("g")
       .classed("bubbleGroup", true)
       .on("mouseover", function (d) {
-        console.log(" :: : tooltip ");
+        tooltip.style("visibility", "visible");
         tooltip.html(d.name);
-        return tooltip.style("visibility", "visible");
       })
-      .on("mousemove", function () {
-        return tooltip
-          .style("top", d3.event.pageY - 10 + "px")
-          .style("left", d3.event.pageX + 10 + "px");
+      .on("mousemove", function (d) {
+        tooltip
+          .style("left", d3.event.pageX - 50 + "px")
+          .style("top", d3.event.pageY - 70 + "px");
       })
-      .on("mouseout", function () {
-        return tooltip.style("visibility", "hidden");
+      .on("mouseout", function (d) {
+        tooltip.style("visibility", "hidden");
       });
+    //   .on("mouseover", function (d) {
+    //     console.log(" :: : tooltip ", tooltip);
+    //     tooltip.html(d.name);
+    //     return tooltip.style("visibility", "visible");
+    //   })
+    //   .on("mousemove", function () {
+    //     return tooltip
+    //       .style("top", d3.event.pageY - 10 + "px")
+    //       .style("left", d3.event.pageX + 10 + "px");
+    //   })
+    //   .on("mouseout", function () {
+    //     return tooltip.style("visibility", "hidden");
+    //   });
     bubbles = elements
       .append("circle")
       .classed("bubble", true)
@@ -80,7 +130,7 @@ function bubbleChart() {
         d3.select(this)
           .transition()
           .duration("700")
-          .attr("r", d.radius + 3);
+          .attr("r", d.radius + 4);
       })
       .on("mouseout", function (d) {
         d3.select(this).transition().duration("300").attr("r", d.radius);
@@ -108,25 +158,33 @@ function bubbleChart() {
 }
 let myBubbleChart = bubbleChart();
 function display(data) {
-  myBubbleChart("#bubbleChart", data);
+  myBubbleChart("#skillChart", data);
+  var windowHeight = $(window).height();
 }
 skillData && display(skillData);
 
+var tempData = [];
 function skillEffect() {
   var pagePosition = window.pageYOffset || document.documentElement.scrollTop;
   var skillSection = $("#skill");
   var elmnt = document.getElementById("skill");
   var windowHeight = $(window).height();
-
-  if (pagePosition < windowHeight + windowHeight / 2) {
-    showData = true;
+  //   console.log(" :: pagePosition	 : ", pagePosition);
+  $(".pagePosition").html(windowHeight + " : " + pagePosition);
+  let afterSkillPagePos = windowHeight + $("#skillChart").height();
+  if (pagePosition > windowHeight / 2 && pagePosition < afterSkillPagePos) {
+    if (tempData.length === 0) {
+      tempData = skillData.slice();
+      console.log(" :: pagePosition	 : ", pagePosition, ":", tempData.length);
+      //IF tempData is NULL
+      display(tempData);
+    }
   }
-
-  if (pagePosition < windowHeight / 2) {
-    showData = false;
-    // console.log(showData, " , showData :: windowHeight	 : ", windowHeight);
+  if (pagePosition > afterSkillPagePos || pagePosition < windowHeight / 2) {
+    // debugger;
+    tempData = [];
+    $("#skillChart").empty();
   }
-  //   console.log(" :: showData	 : ", showData);
 }
 var showData = false;
-$(window).scroll(skillEffect);
+// $(window).scroll(skillEffect);

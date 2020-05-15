@@ -16,7 +16,7 @@ functions
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 $blackBgColor: #000;
-$whiteFontColor: #adadad;
+$fontColor: #828282;
 $blueColor: #1e90ff;
 $greenColor: #1e5000;
 $blueGreenColor: #09bdbd;
@@ -25,11 +25,20 @@ $lightRed: #6d3333;
 $white: whitesmoke;
 $gradientBgImage: linear-gradient(to right, $lightRed, $red);
 // $gradientBgImage: linear-gradient(to right, $blueColor, $greenColor);
+.pagePosition {
+  color: honeydew;
+}
+@keyframes type {
+  from {
+    opacity: 0;
+  }
+}
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 *::before,
 *::after {
   box-sizing: border-box;
@@ -213,9 +222,10 @@ body {
   grid-gap: 50px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   align-items: center;
-
+  animation: type 8s;
   .redFont {
     color: #e36d6d;
+    font-weight: bold;
   }
 
   .profilePic {
@@ -224,10 +234,12 @@ body {
     object-fit: cover;
   }
   .profileDesc {
-    line-height: 20pt;
-    font-size: 10pt;
-    letter-spacing: 1pt;
-    color: whitesmoke;
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 300;
+    opacity: 0.55;
+    color: #fff;
   }
 }
 //  -------------------- END HOME
@@ -325,7 +337,7 @@ body {
       input.btnSend {
         background-color: $lightRed;
         border: 1px solid $red;
-        color: $whiteFontColor;
+        color: $fontColor;
         width: 85px;
         float: right;
         clear: both;
@@ -370,33 +382,6 @@ footer {
 
 // SKILL CAHRT
 
-#viz {
-  min-height: 400px;
-  display: -ms-grid;
-  display: grid;
-}
-
-.bar {
-  fill: #c7003b;
-}
-.bar:hover {
-  fill: #61001d;
-}
-.axis {
-  font-size: 10px;
-  stroke: whitesmoke;
-}
-
-.axis line,
-.axis path {
-  fill: none;
-  stroke: #d4d8da;
-  stroke-width: 1px;
-  shape-rendering: crispEdges;
-}
-.x path {
-  display: none;
-}
 #chart {
   width: 100%;
   height: 100%;
@@ -411,21 +396,54 @@ footer {
   border-radius: 2px;
 }
 // END SKILL CAHRT
+// --------------------------- CHART
 
+.tooltip {
+  position: absolute;
+  visibility: hidden;
+  min-width: 60px;
+  height: auto;
+  background-color: rgba(210, 196, 196, 0.8);
+  border: $red;
+  border-radius: 5px;
+  color: rgb(7, 5, 2);
+  font-size: 8pt;
+  padding: 5px;
+}
 // ----------- BUBBLE CHART
-#bubbleChart {
-  background-color: #000;
-
-  .tooltip {
-    position: absolute;
-    visibility: hidden;
-    color: whitesmoke;
-    padding: 5px;
-    border-radius: 3px;
-    text-align: left;
-    width: 125px;
-    font-size: 10pt;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+#skillChart {
+  padding: 2px;
 }
 // -----------END BUBBLE CHART
+
+// --------- GIT CHART
+#gitChart {
+  path,
+  line,
+  text {
+    fill: none;
+    stroke: #d2a3a3;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+    font-size: 7px;
+  }
+  rect {
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+  .bar {
+    fill: #c7003b;
+  }
+  .bar:hover {
+    fill: #61001d;
+  }
+
+  .axis {
+    font-size: 10px;
+    stroke: whitesmoke;
+  }
+}
+// --------- END GIT CHART
