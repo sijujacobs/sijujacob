@@ -358,6 +358,10 @@ body {
 #contact {
   min-height: 50vh;
   background: radial-gradient(#230707, #000);
+  p,
+  a {
+    color: wheat;
+  }
   //   background-image: url("../images/work-731198_1920.jpg");
   //   background-attachment: fixed;
   //   background-position: center;

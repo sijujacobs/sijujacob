@@ -389,6 +389,11 @@ body {
   z-index: 3;
 }
 
+#contact p,
+#contact a {
+  color: wheat;
+}
+
 #contact .sectionContent {
   padding: 5%;
 }
