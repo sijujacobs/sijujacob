@@ -440,14 +440,16 @@ body {
 #contact {
   min-height: 50vh;
   background: radial-gradient(#230707, #000);
+  text-align: center;
   z-index: 3;
 }
 
-#contact p.email {
-  color: wheat;
+#contact p.message {
+  opacity: 0.55;
+  color: whitesmoke;
 }
 
-#contact p.email a {
+#contact a {
   color: #ed8261;
 }
 

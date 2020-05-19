@@ -3,7 +3,7 @@
 
   function makeNewPosition($container) {
     var h = $container.height() - 50;
-    var w = $container.width() - 160;
+    var w = $container.width() - 100;
     var nh = Math.floor(Math.random() * h);
     var nw = Math.floor(Math.random() * w);
     return [nh, nw];

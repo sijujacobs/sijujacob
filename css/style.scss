@@ -389,11 +389,14 @@ body {
 #contact {
   min-height: 50vh;
   background: radial-gradient(#230707, #000);
-  p.email {
-    color: wheat;
-    a {
-      color: rgb(237, 130, 97);
-    }
+
+  text-align: center;
+  p.message {
+    opacity: 0.55;
+    color: $white;
+  }
+  a {
+    color: rgb(237, 130, 97);
   }
 
   //   background-image: url("../images/work-731198_1920.jpg");
