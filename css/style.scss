@@ -103,18 +103,49 @@ body {
     opacity: 0;
   }
 }
+@keyframes fontColor {
+  0% {
+    color: #1abc9c;
+  }
+
+  20% {
+    color: #d35400;
+  }
+  40% {
+    color: #2980b9;
+  }
+  60% {
+    color: #f1c40f;
+  }
+
+  80% {
+    color: #2980b9;
+  }
+  100% {
+    color: pink;
+  }
+}
 .fadeText10s {
   opacity: 1;
-  animation: fadeIn 10s infinite alternate;
+  animation: fadeIn 10s infinite alternate, fontColor 3s infinite;
 }
 .fadeText8s {
   opacity: 1;
-  animation: fadeIn 8s infinite alternate;
+  animation: fadeIn 8s infinite alternate, fontColor 5s infinite;
 }
 .fadeText6s {
   opacity: 1;
-  animation: fadeIn 6s infinite alternate;
+  animation: fadeIn 6s infinite alternate, fontColor 7s infinite;
 }
+.fadeText4s {
+  opacity: 1;
+  animation: fadeIn 4s infinite alternate, fontColor 9s infinite;
+}
+.fadeText2s {
+  opacity: 1;
+  animation: fadeIn 2s infinite alternate, fontColor 6s infinite;
+}
+
 // ----------- SCROLL
 // .progress-indicator {
 //   position: fixed;

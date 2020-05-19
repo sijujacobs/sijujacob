@@ -10,13 +10,9 @@
   }
 
   function animateDiv($target) {
-    console.log(" :: : animate ");
     var newq = makeNewPosition($target.parent());
     var oldq = $target.offset();
     var speed = calcSpeed([oldq.top, oldq.left], newq);
-
-    console.log(" :: target : ", $target);
-    console.log(" :: newq : ", newq, ", oldq : ", oldq, ", speed : ", speed);
     $target.animate(
       {
         top: newq[0],
@@ -47,4 +43,5 @@
   animateDiv($("#api"));
   animateDiv($("#component"));
   animateDiv($("#website"));
+  animateDiv($("#git"));
 })();

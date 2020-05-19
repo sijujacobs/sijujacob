@@ -54,17 +54,39 @@ function bubbleChart() {
       .attr("class", "tooltip")
       .text("");
 
+    //   GRADIENT
+    var grads = svg
+      .append("defs")
+      .selectAll("radialGradient")
+      .data(nodes)
+      .enter()
+      .append("radialGradient")
+      .attr("gradientUnits", "objectBoundingBox")
+      .attr("cx", 0)
+      .attr("cy", 0)
+      .attr("r", "100%")
+      .attr("id", function (d, i) {
+        return "grad" + i;
+      });
+
+    grads.append("stop").attr("offset", "0%").style("stop-color", "white");
+
+    grads
+      .append("stop")
+      .attr("offset", "100%")
+      .style("stop-color", function (d) {
+        return fillColour(d.name);
+      });
+
     //   ------------ DROP SHADOW FILTER
     // filters go in defs element
     var defs = svg.append("defs");
-
     // create filter with id #drop-shadow
     // height=130% so that the shadow is not clipped
     var filter = defs
       .append("filter")
       .attr("id", "drop-shadow")
       .attr("height", "130%");
-
     // SourceAlpha refers to opacity of graphic that this filter will be applied to
     // convolve that with a Gaussian with standard deviation 3 and store result
     // in blur
@@ -73,7 +95,6 @@ function bubbleChart() {
       .attr("in", "SourceAlpha")
       .attr("stdDeviation", 5)
       .attr("result", "blur");
-
     // translate output of Gaussian blur to the right and downwards with 2px
     // store result in offsetBlur
     filter
@@ -82,11 +103,9 @@ function bubbleChart() {
       .attr("dx", 5)
       .attr("dy", 5)
       .attr("result", "offsetBlur");
-
     // overlay original SourceGraphic over translated blurred opacity by using
     // feMerge filter. Order of specifying inputs is important!
     var feMerge = filter.append("feMerge");
-
     feMerge.append("feMergeNode").attr("in", "offsetBlur");
     feMerge.append("feMergeNode").attr("in", "SourceGraphic");
     //   ------------END DROP SHADOW FILTER
@@ -109,19 +128,6 @@ function bubbleChart() {
       .on("mouseout", function (d) {
         tooltip.style("visibility", "hidden");
       });
-    //   .on("mouseover", function (d) {
-    //     console.log(" :: : tooltip ", tooltip);
-    //     tooltip.html(d.name);
-    //     return tooltip.style("visibility", "visible");
-    //   })
-    //   .on("mousemove", function () {
-    //     return tooltip
-    //       .style("top", d3.event.pageY - 10 + "px")
-    //       .style("left", d3.event.pageX + 10 + "px");
-    //   })
-    //   .on("mouseout", function () {
-    //     return tooltip.style("visibility", "hidden");
-    //   });
     bubbles = elements
       .append("circle")
       .classed("bubble", true)
@@ -135,9 +141,12 @@ function bubbleChart() {
       .on("mouseout", function (d) {
         d3.select(this).transition().duration("300").attr("r", d.radius);
       })
-      .style("fill", function (d) {
-        return fillColour(d.name);
+      .attr("fill", function (d, i) {
+        return "url(#grad" + i + ")";
       });
+    //   .style("fill", function (d) {
+    //     return fillColour(d.name);
+    //   });
     // labels
     labels = elements
       .append("text")
