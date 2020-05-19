@@ -132,6 +132,20 @@ function bubbleChart() {
       .append("circle")
       .classed("bubble", true)
       .attr("r", (d) => d.radius)
+      .on("click", function (d) {
+        const simulation = d3
+          .forceSimulation()
+          .force("charge", d3.forceManyBody().strength(350))
+          .force("x", d3.forceX().strength(0.05).x(centre.x))
+          .force("y", d3.forceY().strength(0.05).y(centre.y))
+          .force(
+            "collision",
+            d3.forceCollide().radius((d) => d.radius + 2)
+          );
+
+        simulation.stop();
+        simulation.nodes(nodes).on("tick", ticked).restart();
+      })
       .on("mouseover", function (d) {
         d3.select(this)
           .transition()
@@ -161,6 +175,71 @@ function bubbleChart() {
   function ticked() {
     bubbles.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
     labels.attr("x", (d) => d.x).attr("y", (d) => d.y);
+  }
+
+  function restart() {
+    // Apply the general update pattern to the nodes.
+    node = node.data(nodes, function (d) {
+      return d.id;
+    });
+
+    node.exit().transition().attr("r", 0).remove();
+
+    node = node
+      .enter()
+      .append("circle")
+      .attr("fill", function (d) {
+        return color(d.id);
+      })
+      .call(function (node) {
+        node.transition().attr("r", 8);
+      })
+      .merge(node);
+
+    // Apply the general update pattern to the links.
+    link = link.data(links, function (d) {
+      return d.source.id + "-" + d.target.id;
+    });
+
+    // Keep the exiting links connected to the moving remaining nodes.
+    link
+      .exit()
+      .transition()
+      .attr("stroke-opacity", 0)
+      .attrTween("x1", function (d) {
+        return function () {
+          return d.source.x;
+        };
+      })
+      .attrTween("x2", function (d) {
+        return function () {
+          return d.target.x;
+        };
+      })
+      .attrTween("y1", function (d) {
+        return function () {
+          return d.source.y;
+        };
+      })
+      .attrTween("y2", function (d) {
+        return function () {
+          return d.target.y;
+        };
+      })
+      .remove();
+
+    link = link
+      .enter()
+      .append("line")
+      .call(function (link) {
+        link.transition().attr("stroke-opacity", 1);
+      })
+      .merge(link);
+
+    // Update and restart the simulation.
+    simulation.nodes(nodes);
+    simulation.force("link").links(links);
+    simulation.alpha(1).restart();
   }
 
   return chart;
