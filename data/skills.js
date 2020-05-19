@@ -2,7 +2,7 @@ var skillData = [
   {
     id: 1,
     groupid: 1,
-    size: 10,
+    size: 20,
     name: "Javascript",
   },
   {
