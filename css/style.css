@@ -389,9 +389,12 @@ body {
   z-index: 3;
 }
 
-#contact p,
-#contact a {
+#contact p.email {
   color: wheat;
+}
+
+#contact p.email a {
+  color: #ed8261;
 }
 
 #contact .sectionContent {
