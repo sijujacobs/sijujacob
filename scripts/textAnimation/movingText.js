@@ -44,4 +44,5 @@
   animateDiv($("#component"));
   animateDiv($("#website"));
   animateDiv($("#git"));
+  animateDiv($("#responsive"));
 })();

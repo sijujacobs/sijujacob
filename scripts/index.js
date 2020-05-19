@@ -1,6 +1,5 @@
 (function () {
   $(".menuButton").click(function () {
-    console.log(" MenuButtonClicked :: : ");
     $(this).toggleClass("open");
     $(".navOverlay").toggleClass("open");
   });
