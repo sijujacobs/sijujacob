@@ -33,16 +33,10 @@
     var speed = Math.ceil(greatest / speedModifier);
     return speed;
   }
-
-  animateDiv($("#webapp"));
-  animateDiv($("#dataviz"));
-  animateDiv($("#abtest"));
-  animateDiv($("#kibana"));
-  animateDiv($("#plugin"));
-  animateDiv($("#spa"));
-  animateDiv($("#api"));
-  animateDiv($("#component"));
-  animateDiv($("#website"));
-  animateDiv($("#git"));
-  animateDiv($("#responsive"));
+  var elements = $("#techExperience div");
+  for (let i = 0; i < elements.length; i++) {
+    let thisElement = elements[i];
+    // console.log("Animate :: : ", $(thisElement));
+    animateDiv($(thisElement));
+  }
 })();

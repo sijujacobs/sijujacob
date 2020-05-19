@@ -92,13 +92,13 @@ body {
   height: auto;
 }
 
-#techContainer {
+#techExperience {
   height: 60vh;
   color: whitesmoke;
   position: relative;
 }
 
-#techContainer div {
+#techExperience div {
   position: absolute;
   height: 30px;
   min-width: 150px;
