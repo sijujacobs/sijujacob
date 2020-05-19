@@ -77,7 +77,6 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   background-color: $blackBgColor;
-  padding: 10px;
 }
 
 // ----------- SCROLL
@@ -119,11 +118,14 @@ body {
 
 #navbar {
   position: fixed;
-  width: 95vw;
+  width: 100vw;
   z-index: 9;
-
+  padding: 0 20px;
   .logo {
+    color: $red;
     float: left;
+    font-weight: bolder;
+    font-size: 15pt;
     margin: 10px 5px 0 15px;
     img {
       height: 20px;
