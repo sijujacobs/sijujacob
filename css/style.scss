@@ -390,10 +390,10 @@ body {
   min-height: 50vh;
   background: radial-gradient(#230707, #000);
 
-  text-align: center;
-  p.message {
+  p {
     opacity: 0.55;
     color: $white;
+    text-align: center;
   }
   a {
     color: rgb(237, 130, 97);
