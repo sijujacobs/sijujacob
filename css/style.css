@@ -384,7 +384,7 @@ body {
 }
 
 #contact {
-  min-height: 80vh;
+  min-height: 50vh;
   background: radial-gradient(#230707, #000);
   z-index: 3;
 }
