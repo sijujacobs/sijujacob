@@ -47,7 +47,6 @@ $gradientBgImage: linear-gradient(to right, $lightRed, $red);
 .sectionHeader {
   position: relative;
   padding: 20px 0px 20px 30px;
-  background-color: $blackBgColor;
 }
 .sectionTitle {
   font-size: 15px;
@@ -81,9 +80,48 @@ body {
   padding: 10px;
 }
 
+// ----------- SCROLL
+// .progress-indicator {
+//   position: fixed;
+//   bottom: 50px;
+//   right: 30px;
+//   width: 100px;
+//   height: 100px;
+//   z-index: 99;
+// }
+// .progress-count {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   text-align: center;
+//   line-height: 100px;
+//   color: $lightRed;
+// }
+
+// svg {
+//   position: absolute;
+// }
+// circle {
+//   fill: rgba(255, 255, 255, 0.9);
+// }
+
+// svg .animated-circle {
+//   fill: transparent;
+//   stroke-width: 40px;
+//   stroke: red;
+//   stroke-dasharray: 126;
+//   stroke-dashoffset: 126;
+// }
+
 // -------------------- NAVBAR --------------------
 
 #navbar {
+  position: fixed;
+  width: 95vw;
+  z-index: 9;
+
   .logo {
     float: left;
     margin: 10px 5px 0 15px;
@@ -256,7 +294,9 @@ body {
 //  -------------------- END ABOUT
 
 //  --------------------  SKILLS
-
+#skill {
+  background: radial-gradient(#230707, #000);
+}
 //  -------------------- END SKILLS
 
 // ------------------ TECHNOLOGIES
@@ -279,6 +319,7 @@ body {
 // ---------------------- CONTACT
 #contact {
   min-height: 80vh;
+  background: radial-gradient(#230707, #000);
   //   background-image: url("../images/work-731198_1920.jpg");
   //   background-attachment: fixed;
   //   background-position: center;
