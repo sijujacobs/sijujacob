@@ -81,6 +81,59 @@ body {
   background-color: #000;
 }
 
+.spider {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+
+.spider img {
+  width: 100%;
+  height: auto;
+}
+
+#techContainer {
+  height: 60vh;
+  color: whitesmoke;
+  position: relative;
+}
+
+#techContainer div {
+  position: absolute;
+  height: 30px;
+  min-width: 150px;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+.fadeText10s {
+  opacity: 1;
+  -webkit-animation: fadeIn 10s infinite alternate;
+          animation: fadeIn 10s infinite alternate;
+}
+
+.fadeText8s {
+  opacity: 1;
+  -webkit-animation: fadeIn 8s infinite alternate;
+          animation: fadeIn 8s infinite alternate;
+}
+
+.fadeText6s {
+  opacity: 1;
+  -webkit-animation: fadeIn 6s infinite alternate;
+          animation: fadeIn 6s infinite alternate;
+}
+
 #navbar {
   position: fixed;
   width: 100vw;

@@ -42,7 +42,6 @@ function bubbleChart() {
   }
 
   let chart = function chart(selector, rawData) {
-    console.log("111 :: : ", rawData);
     nodes = createNodes(rawData);
     svg = d3
       .select(selector)

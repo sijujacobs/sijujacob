@@ -78,7 +78,43 @@ body {
   min-height: 100vh;
   background-color: $blackBgColor;
 }
+.spider {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
 
+#techContainer {
+  height: 60vh;
+  color: $white;
+  position: relative;
+  div {
+    position: absolute;
+    height: 30px;
+    min-width: 150px;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+.fadeText10s {
+  opacity: 1;
+  animation: fadeIn 10s infinite alternate;
+}
+.fadeText8s {
+  opacity: 1;
+  animation: fadeIn 8s infinite alternate;
+}
+.fadeText6s {
+  opacity: 1;
+  animation: fadeIn 6s infinite alternate;
+}
 // ----------- SCROLL
 // .progress-indicator {
 //   position: fixed;
