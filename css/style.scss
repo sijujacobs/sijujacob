@@ -188,6 +188,7 @@ body {
   width: 100vw;
   z-index: 9;
   padding: 0 20px;
+  background-color: rgba(0, 0, 0, 0.5);
   .logo {
     color: $red;
     float: left;
@@ -394,16 +395,11 @@ body {
     opacity: 0.55;
     color: $white;
     text-align: center;
+    font-size: 10pt;
   }
-  a {
+  a.email {
     color: rgb(237, 130, 97);
   }
-
-  //   background-image: url("../images/work-731198_1920.jpg");
-  //   background-attachment: fixed;
-  //   background-position: center;
-  //   background-repeat: no-repeat;
-  //   background-size: cover;
   z-index: 3;
   .sectionContent {
     padding: 5%;
@@ -494,6 +490,7 @@ footer {
   justify-items: center;
   .footerWrapper {
     width: 100%;
+    padding-bottom: 15px;
   }
   .copyRight {
     text-align: center;

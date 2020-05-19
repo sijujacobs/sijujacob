@@ -193,6 +193,7 @@ body {
   width: 100vw;
   z-index: 9;
   padding: 0 20px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #navbar .logo {
@@ -447,9 +448,10 @@ body {
   opacity: 0.55;
   color: whitesmoke;
   text-align: center;
+  font-size: 10pt;
 }
 
-#contact a {
+#contact a.email {
   color: #ed8261;
 }
 
@@ -568,6 +570,7 @@ footer {
 
 footer .footerWrapper {
   width: 100%;
+  padding-bottom: 15px;
 }
 
 footer .copyRight {
