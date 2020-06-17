@@ -564,3 +564,53 @@ footer {
   }
 }
 // --------- END GIT CHART
+
+// SOCIAL
+.socialContainer {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(4, 100px);
+  justify-items: center;
+  justify-content: center;
+  margin: 50px;
+  a {
+    display: inline-flex;
+    text-decoration: none;
+    font-size: 25px;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  a::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #ff552e, #30336b);
+    // background: linear-gradient(45deg, #22a6b3, #30336b);
+    border-radius: 50%;
+    z-index: -1;
+    transition: 0.3s ease-in;
+  }
+  a:hover::before {
+    transform: scale(0);
+    border: none;
+  }
+  a i {
+    transition: 0.3s ease-in;
+  }
+  a:hover i {
+    // background: linear-gradient(45deg, #d35400, #30336b);
+    background: linear-gradient(45deg, red, #30336b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(2.2);
+    border: none;
+  }
+}
+
+// END SOCIAL
